@@ -27,7 +27,7 @@ const sections = [
     title: "Geografia",
     description:
       "Dados geográficos, clima, relevo e posição no mapa da Paraíba.",
-    path: "/localizacao",
+    path: "/geografia",
     delay: 0.2,
   },
   {
