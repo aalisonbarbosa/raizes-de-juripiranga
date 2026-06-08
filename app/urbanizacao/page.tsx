@@ -1,6 +1,13 @@
+"use client";
+
+import { GalleryImage } from "@/components/shared/GalleryImage";
+import {
+  ImageLightbox,
+  LightboxImage,
+} from "@/components/shared/ImageLightbox";
 import PageHero from "@/components/shared/PageHero";
 import SectionTitle from "@/components/shared/SectionTitle";
-import Image from "next/image";
+import { useState } from "react";
 
 const imagesCentro = [
   { src: "/centro 8.jpg.jpeg", alt: "Centro de Juripiranga" },
@@ -36,6 +43,17 @@ const imagesMiniCoeso = [
   { src: "/mini-coeso1.jpeg", alt: "Coesão urbana em Juripiranga" },
   { src: "/mini-coeso2.jpeg", alt: "Coesão urbana em Juripiranga" },
   { src: "/mini-coeso3.jpeg", alt: "Coesão urbana em Juripiranga" },
+];
+
+const imagesDescentralizacao = [
+  {
+    src: "/image-descentralizacao1.jpeg",
+    alt: "Prédio comercial moderno em Juripiranga com fachada de vidro, palmeiras e estabelecimentos comerciais",
+  },
+  {
+    src: "/image-descentralizacao2.jpeg",
+    alt: "Área em expansão urbana de Juripiranga com terrenos, novas construções e comércio às margens da rodovia",
+  },
 ];
 
 const hierarquiaUrbana = [
@@ -77,6 +95,16 @@ const hierarquiaUrbana = [
 ];
 
 export default function Urbanizacao() {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [currentImages, setCurrentImages] = useState<LightboxImage[]>([]);
+
+  const openLightbox = (images: LightboxImage[], index: number) => {
+    setCurrentImages(images);
+    setSelectedIndex(index);
+    setLightboxOpen(true);
+  };
+
   return (
     <>
       <PageHero
@@ -119,18 +147,12 @@ export default function Urbanizacao() {
 
           <div className="columns-1 gap-3 md:columns-3 my-12 space-y-3">
             {imagesCentro.map((image, i) => (
-              <div
+              <GalleryImage
                 key={i}
-                className="break-inside-avoid overflow-hidden aspect-video"
-              >
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  width={600}
-                  height={400}
-                  className="w-full h-full object-cover"
-                />
-              </div>
+                src={image.src}
+                alt={image.alt}
+                onClick={() => openLightbox(imagesCentro, i)}
+              />
             ))}
           </div>
 
@@ -160,6 +182,17 @@ export default function Urbanizacao() {
             especializadas.
           </p>
 
+          <div className="columns-1 gap-3 md:columns-2 my-12 space-y-3">
+            {imagesDescentralizacao.map((image, i) => (
+              <GalleryImage
+                key={i}
+                src={image.src}
+                alt={image.alt}
+                onClick={() => openLightbox(imagesDescentralizacao, i)}
+              />
+            ))}
+          </div>
+
           <p>
             A cidade também vai apresentar uma área de <strong>coesão</strong>,
             que acontece quando várias atividades se concentram em um mesmo
@@ -178,18 +211,12 @@ export default function Urbanizacao() {
 
           <div className="columns-1 gap-3 md:columns-3 my-12 space-y-3">
             {imagesMiniCoeso.map((image, i) => (
-              <div
+              <GalleryImage
                 key={i}
-                className="break-inside-avoid overflow-hidden aspect-video"
-              >
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  width={600}
-                  height={400}
-                  className="w-full h-full object-cover"
-                />
-              </div>
+                src={image.src}
+                alt={image.alt}
+                onClick={() => openLightbox(imagesMiniCoeso, i)}
+              />
             ))}
           </div>
 
@@ -212,18 +239,12 @@ export default function Urbanizacao() {
 
           <div className="columns-1 gap-3 md:columns-3 my-12 space-y-3">
             {imagesSegregacaoInduzida.map((image, i) => (
-              <div
+              <GalleryImage
                 key={i}
-                className="break-inside-avoid overflow-hidden aspect-video"
-              >
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  width={600}
-                  height={400}
-                  className="w-full h-full object-cover"
-                />
-              </div>
+                src={image.src}
+                alt={image.alt}
+                onClick={() => openLightbox(imagesSegregacaoInduzida, i)}
+              />
             ))}
           </div>
           <p>
@@ -246,18 +267,12 @@ export default function Urbanizacao() {
 
           <div className="columns-1 gap-3 md:columns-3 my-12 space-y-3">
             {imagesAutoSegregacao.map((image, i) => (
-              <div
+              <GalleryImage
                 key={i}
-                className="break-inside-avoid overflow-hidden aspect-video"
-              >
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  width={600}
-                  height={400}
-                  className="w-full h-full object-cover"
-                />
-              </div>
+                src={image.src}
+                alt={image.alt}
+                onClick={() => openLightbox(imagesAutoSegregacao, i)}
+              />
             ))}
           </div>
         </div>
@@ -331,6 +346,13 @@ export default function Urbanizacao() {
           </p>
         </div>
       </section>
+      {lightboxOpen && (
+        <ImageLightbox
+          images={currentImages}
+          initialIndex={selectedIndex}
+          onClose={() => setLightboxOpen(false)}
+        />
+      )}
     </>
   );
 }

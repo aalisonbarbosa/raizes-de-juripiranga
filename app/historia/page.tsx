@@ -1,6 +1,10 @@
+"use client";
+
+import { GalleryImage } from "@/components/shared/GalleryImage";
+import { ImageLightbox } from "@/components/shared/ImageLightbox";
 import PageHero from "@/components/shared/PageHero";
 import SectionTitle from "@/components/shared/SectionTitle";
-import Image from "next/image";
+import { useState } from "react";
 
 const imagesHistoria = [
   {
@@ -35,8 +39,11 @@ const imagesHistoria = [
 ];
 
 export default function Historia() {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
   return (
-    <div>
+    <>
       <PageHero
         image="https://media.base44.com/images/public/6a034b4959d75d3db540cab9/d385757d5_generated_61000897.png"
         title="História"
@@ -133,21 +140,25 @@ export default function Historia() {
         </div>
         <div className="columns-2 gap-3 md:columns-3 my-12 space-y-3">
           {imagesHistoria.map((image, i) => (
-            <div
+            <GalleryImage
               key={i}
-              className="break-inside-avoid overflow-hidden aspect-video"
-            >
-              <Image
-                src={image.src}
-                alt={image.alt}
-                width={600}
-                height={400}
-                className="w-full h-full object-cover"
-              />
-            </div>
+              src={image.src}
+              alt={image.alt}
+              onClick={() => {
+                setSelectedIndex(i);
+                setLightboxOpen(true);
+              }}
+            />
           ))}
         </div>
       </section>
-    </div>
+      {lightboxOpen && (
+        <ImageLightbox
+          images={imagesHistoria}
+          initialIndex={selectedIndex}
+          onClose={() => setLightboxOpen(false)}
+        />
+      )}
+    </>
   );
 }

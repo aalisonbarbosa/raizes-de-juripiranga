@@ -1,6 +1,10 @@
+"use client";
+
+import { GalleryImage } from "@/components/shared/GalleryImage";
+import { ImageLightbox } from "@/components/shared/ImageLightbox";
 import PageHero from "@/components/shared/PageHero";
 import SectionTitle from "@/components/shared/SectionTitle";
-import Image from "next/image";
+import { useState } from "react";
 
 const imagesCultura = [
   { src: "/foto-cultura1.png", alt: "Cultura de Juripiranga" },
@@ -11,8 +15,11 @@ const imagesCultura = [
 ];
 
 export default function Cultura() {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
   return (
-    <div>
+    <>
       <PageHero
         image="https://media.base44.com/images/public/6a034b4959d75d3db540cab9/b1f7bb98a_generated_0e4ada51.png"
         title="Cultura"
@@ -139,21 +146,26 @@ export default function Cultura() {
         </div>
         <div className="columns-1 gap-3 md:columns-3 my-12 space-y-3">
           {imagesCultura.map((image, i) => (
-            <div
+            <GalleryImage
               key={i}
-              className="break-inside-avoid overflow-hidden aspect-video"
-            >
-              <Image
-                src={image.src}
-                alt={image.alt}
-                width={600}
-                height={400}
-                className="w-full h-full object-cover"
-              />
-            </div>
+              src={image.src}
+              alt={image.alt}
+              onClick={() => {
+                setSelectedIndex(i);
+                setLightboxOpen(true);
+              }}
+            />
           ))}
         </div>
       </section>
-    </div>
+
+      {lightboxOpen && (
+        <ImageLightbox
+          images={imagesCultura}
+          initialIndex={selectedIndex}
+          onClose={() => setLightboxOpen(false)}
+        />
+      )}
+    </>
   );
 }

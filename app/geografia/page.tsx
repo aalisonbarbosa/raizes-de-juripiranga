@@ -17,7 +17,7 @@ const imagesLocalizacao = [
 
 export default function Geografia() {
   return (
-    <div>
+    <>
       <PageHero
         image="https://media.base44.com/images/public/6a034b4959d75d3db540cab9/0bc0ee394_generated_818f920f.png"
         title="Geografia"
@@ -85,6 +85,6 @@ export default function Geografia() {
           </p>
         </div>
       </section>
-    </div>
+    </>
   );
 }
