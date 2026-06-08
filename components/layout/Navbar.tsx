@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { Menu, X, MapPin } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -11,8 +11,10 @@ import Image from "next/image";
 const navLinks = [
   { label: "Home", path: "/" },
   { label: "História", path: "/historia" },
-  { label: "Localização", path: "/localizacao" },
+  { label: "Geografia", path: "/geografia" },
+  { label: "Urbanização", path: "/urbanizacao" },
   { label: "Economia", path: "/economia" },
+  { label: "Meio Ambiente", path: "/meio-ambiente" },
   { label: "Cultura", path: "/cultura" },
 ];
 
@@ -25,10 +27,13 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-2 group">
-            {/* <div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center">
-              <MapPin className="w-5 h-5 text-primary-foreground" />
-            </div> */}
-            <Image width={156} height={156} src="/logo.png" alt="logo" className="h-12 w-auto"/>
+            <Image
+              width={156}
+              height={156}
+              src="/logo.png"
+              alt="logo"
+              className="h-12 w-auto"
+            />
             <span className="font-poppins font-bold text-lg text-foreground tracking-tight">
               Raízes de Juripiranga
             </span>

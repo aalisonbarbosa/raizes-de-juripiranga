@@ -2,7 +2,15 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, BookOpen, MapPin, TrendingUp, Music } from "lucide-react";
+import {
+  ArrowRight,
+  BookOpen,
+  MapPin,
+  TrendingUp,
+  Music,
+  TreePine,
+  Building2,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const sections = [
@@ -16,11 +24,19 @@ const sections = [
   },
   {
     icon: MapPin,
-    title: "Localização",
+    title: "Geografia",
     description:
       "Dados geográficos, clima, relevo e posição no mapa da Paraíba.",
     path: "/localizacao",
     delay: 0.2,
+  },
+  {
+    icon: Building2,
+    title: "Urbanização",
+    description:
+      "A estrutura urbana, o crescimento da cidade e sua posição na hierarquia urbana brasileira.",
+    path: "/urbanizacao",
+    delay: 0.6,
   },
   {
     icon: TrendingUp,
@@ -29,6 +45,14 @@ const sections = [
       "A economia local, o comércio e as atividades produtivas da região.",
     path: "/economia",
     delay: 0.3,
+  },
+  {
+    icon: TreePine,
+    title: "Meio Ambiente",
+    description:
+      "Gestão de resíduos, impactos ambientais e projetos sustentáveis do município.",
+    path: "/meio-ambiente",
+    delay: 0.5,
   },
   {
     icon: Music,
@@ -43,7 +67,7 @@ const sections = [
 export default function Home() {
   return (
     <div>
-      <section className="relative h-[85vh] min-h-135 overflow-hidden"> 
+      <section className="relative h-[85vh] min-h-135 overflow-hidden">
         <img
           src="/home-hero.png"
           alt="Vista panorâmica de Juripiranga"

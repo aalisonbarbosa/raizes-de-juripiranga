@@ -47,7 +47,7 @@ export default function Footer() {
                 href="https://www.instagram.com/vitoria_hellemm?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                 className="text-white/80 font-medium hover:underline"
               >
-                Vitória Hellem
+                Helen Vitória
               </a>{" "}
               - Desenvolvido por{" "}
               <a
