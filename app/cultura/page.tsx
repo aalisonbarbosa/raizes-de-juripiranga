@@ -1,5 +1,14 @@
 import PageHero from "@/components/shared/PageHero";
 import SectionTitle from "@/components/shared/SectionTitle";
+import Image from "next/image";
+
+const imagesCultura = [
+  { src: "/foto-cultura1.png", alt: "Cultura de Juripiranga" },
+  { src: "/foto-cultura2.png", alt: "Cultura de Juripiranga" },
+  { src: "/foto-cultura3.png", alt: "Cultura de Juripiranga" },
+  { src: "/festa-sao-sebastio.jpeg", alt: "Festa de São Sebastião" },
+  { src: "/quadrilha-cultura.jpeg", alt: "Quadrilha junina de Juripiranga" },
+];
 
 export default function Cultura() {
   return (
@@ -127,6 +136,22 @@ export default function Cultura() {
             pertencimento de sua população, projetando sua identidade muito além
             de suas fronteiras geográficas.
           </p>
+        </div>
+        <div className="columns-1 gap-3 md:columns-3 my-12 space-y-3">
+          {imagesCultura.map((image, i) => (
+            <div
+              key={i}
+              className="break-inside-avoid overflow-hidden aspect-video"
+            >
+              <Image
+                src={image.src}
+                alt={image.alt}
+                width={600}
+                height={400}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ))}
         </div>
       </section>
     </div>

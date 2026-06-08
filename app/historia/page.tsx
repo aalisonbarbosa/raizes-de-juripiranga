@@ -1,5 +1,38 @@
 import PageHero from "@/components/shared/PageHero";
 import SectionTitle from "@/components/shared/SectionTitle";
+import Image from "next/image";
+
+const imagesHistoria = [
+  {
+    src: "/foto-historia1.png",
+    alt: "Prefeitura Municipal de Juripiranga em seus primeiros anos",
+  },
+  {
+    src: "/foto-historia2.jpeg",
+    alt: "Vista da estrada de Serrinha, comunidade nordestina em 1971",
+  },
+  {
+    src: "/foto-historia3.jpeg",
+    alt: "Construção histórica típica da região de Juripiranga",
+  },
+  {
+    src: "/foto-historia4.png",
+    alt: "Registro histórico das primeiras ruas de Juripiranga",
+  },
+  {
+    src: "/foto-historia5.png",
+    alt: "Igreja de Nossa Senhora da Soledade nos primórdios da cidade",
+  },
+  { src: "/image1.png", alt: "Registro histórico de Juripiranga" },
+  { src: "/image2.png", alt: "Registro histórico de Juripiranga" },
+  { src: "/image3.png", alt: "Registro histórico de Juripiranga" },
+  { src: "/image4.png", alt: "Registro histórico de Juripiranga" },
+  { src: "/image5.png", alt: "Registro histórico de Juripiranga" },
+  { src: "/image6.png", alt: "Registro histórico de Juripiranga" },
+  { src: "/image7.png", alt: "Registro histórico de Juripiranga" },
+  { src: "/image8.png", alt: "Registro histórico de Juripiranga" },
+  { src: "/image9.png", alt: "Registro histórico de Juripiranga" },
+];
 
 export default function Historia() {
   return (
@@ -97,6 +130,22 @@ export default function Historia() {
             prefeito interino até o mês da eleição em Novembro, e em{" "}
             <strong>4 de Novembro de 1962</strong> ele tomou posse.
           </p>
+        </div>
+        <div className="columns-2 gap-3 md:columns-3 my-12 space-y-3">
+          {imagesHistoria.map((image, i) => (
+            <div
+              key={i}
+              className="break-inside-avoid overflow-hidden aspect-video"
+            >
+              <Image
+                src={image.src}
+                alt={image.alt}
+                width={600}
+                height={400}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ))}
         </div>
       </section>
     </div>

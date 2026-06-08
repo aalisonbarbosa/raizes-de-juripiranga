@@ -1,5 +1,42 @@
 import PageHero from "@/components/shared/PageHero";
 import SectionTitle from "@/components/shared/SectionTitle";
+import Image from "next/image";
+
+const imagesCentro = [
+  { src: "/centro 8.jpg.jpeg", alt: "Centro de Juripiranga" },
+  { src: "/imagem-centro1.jpeg", alt: "Centro de Juripiranga" },
+  { src: "/imagem-centro2.jpeg", alt: "Centro de Juripiranga" },
+  { src: "/imagem-centro4.jpeg", alt: "Centro de Juripiranga" },
+  { src: "/imagem-centro5.jpeg", alt: "Centro de Juripiranga" },
+  { src: "/imagem-centro6.jpeg", alt: "Centro de Juripiranga" },
+];
+
+const imagesAutoSegregacao = [
+  { src: "/auto-segregacao1.jpeg", alt: "Auto-segregação em Juripiranga" },
+  { src: "/auto-segregacao2.jpeg", alt: "Auto-segregação em Juripiranga" },
+  { src: "/auto-segregacao3.jpeg", alt: "Auto-segregação em Juripiranga" },
+];
+
+const imagesSegregacaoInduzida = [
+  {
+    src: "/segregao-induzida1.jpeg",
+    alt: "Segregação induzida em Juripiranga",
+  },
+  {
+    src: "/segregao-induzida2.jpeg",
+    alt: "Segregação induzida em Juripiranga",
+  },
+  {
+    src: "/segregao-induzida4.jpeg",
+    alt: "Segregação induzida em Juripiranga",
+  },
+];
+
+const imagesMiniCoeso = [
+  { src: "/mini-coeso1.jpeg", alt: "Coesão urbana em Juripiranga" },
+  { src: "/mini-coeso2.jpeg", alt: "Coesão urbana em Juripiranga" },
+  { src: "/mini-coeso3.jpeg", alt: "Coesão urbana em Juripiranga" },
+];
 
 const hierarquiaUrbana = [
   {
@@ -80,6 +117,23 @@ export default function Urbanizacao() {
             seja menos intensa quando comparada ao centro.
           </p>
 
+          <div className="columns-1 gap-3 md:columns-3 my-12 space-y-3">
+            {imagesCentro.map((image, i) => (
+              <div
+                key={i}
+                className="break-inside-avoid overflow-hidden aspect-video"
+              >
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  width={600}
+                  height={400}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
+
           <h3 className="text-lg font-semibold text-zinc-800">
             Descentralização e Coesão Urbana
           </h3>
@@ -122,6 +176,23 @@ export default function Urbanizacao() {
             econômicas.
           </p>
 
+          <div className="columns-1 gap-3 md:columns-3 my-12 space-y-3">
+            {imagesMiniCoeso.map((image, i) => (
+              <div
+                key={i}
+                className="break-inside-avoid overflow-hidden aspect-video"
+              >
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  width={600}
+                  height={400}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
+
           <h3 className="text-lg font-semibold text-zinc-800">
             Segregação no Espaço Urbano
           </h3>
@@ -138,6 +209,23 @@ export default function Urbanizacao() {
             centros urbanos, com menor acesso a serviços como transporte, saúde,
             educação e lazer.
           </p>
+
+          <div className="columns-1 gap-3 md:columns-3 my-12 space-y-3">
+            {imagesSegregacaoInduzida.map((image, i) => (
+              <div
+                key={i}
+                className="break-inside-avoid overflow-hidden aspect-video"
+              >
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  width={600}
+                  height={400}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
           <p>
             E a <strong>auto-segregação</strong>: que ocorre quando pessoas com{" "}
             <strong>maior poder aquisitivo</strong> escolhem morar em áreas mais
@@ -150,10 +238,28 @@ export default function Urbanizacao() {
             natureza ou mais afastados do movimento urbano, mesmo que não sejam
             condomínios fechados.
           </p>
+
           <p>
             Esses processos ajudam a entender como o{" "}
             <strong>espaço urbano de Juripiranga</strong> é organizado.
           </p>
+
+          <div className="columns-1 gap-3 md:columns-3 my-12 space-y-3">
+            {imagesAutoSegregacao.map((image, i) => (
+              <div
+                key={i}
+                className="break-inside-avoid overflow-hidden aspect-video"
+              >
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  width={600}
+                  height={400}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
         </div>
 
         <SectionTitle

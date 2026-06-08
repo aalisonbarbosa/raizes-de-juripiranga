@@ -4,14 +4,14 @@ import PageHero from "@/components/shared/PageHero";
 import SectionTitle from "@/components/shared/SectionTitle";
 import Image from "next/image";
 
-const images = [
+const imagesLocalizacao = [
   {
     src: "/mapa-juripiranga.jpeg",
-    alt: "Mapa de Juripiranga",
+    alt: "Mapa do município de Juripiranga com seus limites territoriais",
   },
   {
     src: "/mesorregioes-pb.jpeg",
-    alt: "Mesorregiões da Paraíba",
+    alt: "Mapa das mesorregiões do estado da Paraíba destacando a Mata Paraibana",
   },
 ];
 
@@ -56,7 +56,7 @@ export default function Geografia() {
           </p>
 
           <div className="flex flex-col lg:flex-row gap-4 justify-center items-center">
-            {images.map((image, i) => (
+            {imagesLocalizacao.map((image, i) => (
               <div key={i} className="w-full lg:w-1/2">
                 <Image
                   src={image.src}
