@@ -66,7 +66,7 @@ const sections = [
 
 export default function Home() {
   return (
-    <div>
+    <>
       <section className="relative h-[85vh] min-h-135 overflow-hidden">
         <img
           src="/home-hero.png"
@@ -174,6 +174,137 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </div>
+      <section className="py-20 bg-secondary">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <h2 className="font-poppins font-bold text-3xl text-foreground mb-8">
+              Referências
+            </h2>
+
+            <div className="space-y-4 text-sm text-muted-foreground leading-7">
+              <p>
+                JURIPIRANGA. Prefeitura Municipal de Juripiranga.{" "}
+                <strong>
+                  Juripiranga celebra 150 anos de fé, cultura e tradição na
+                  Festa de São Sebastião 2026
+                </strong>
+                . Juripiranga, 9 fev. 2026. Disponível em:
+                https://www.juripiranga.pb.gov.br/noticia/juripiranga-celebra-150-anos-de-fe-cultura-e-tradicao-na-festa-de-sao-sebastiao-2026.
+                Acesso em: 7 jun. 2026.
+              </p>
+
+              <p>
+                JOÃO PESSOA. Prefeitura Municipal de João Pessoa.{" "}
+                <strong>
+                  Secretaria de Planejamento e EMLUR acompanham estudos para
+                  aumentar vida útil do aterro sanitário
+                </strong>
+                . João Pessoa, [s.d.]. Disponível em:
+                https://www.joaopessoa.pb.gov.br/noticias/secretarias-e-orgaos/seplan-e-emlur-acompanham-estudos-para-aumentar-vida-util-do-aterro-sanitario/.
+                Acesso em: 7 jun. 2026.
+              </p>
+
+              <p>
+                INSPER AGRO GLOBAL.{" "}
+                <strong>
+                  A agricultura familiar produz 70% dos alimentos consumidos
+                  pelos brasileiros?
+                </strong>{" "}
+                São Paulo, 2022. Disponível em:
+                https://agro.insper.edu.br/agro-in-data/artigos/a-agricultura-familiar-produz-70-dos-alimentos-consumidos-pelos-brasileiros.
+                Acesso em: 7 jun. 2026.
+              </p>
+
+              <p>
+                JURIPIRANGA. Prefeitura Municipal de Juripiranga.{" "}
+                <strong>
+                  Secretaria de Infraestrutura, Agricultura e Meio Ambiente
+                </strong>
+                . Disponível em:
+                https://www.juripiranga.pb.gov.br/a-prefeitura/secretarias/secretaria-de-infraestrutura-agricultura-e-meio-ambiente.
+                Acesso em: 7 jun. 2026.
+              </p>
+
+              <p>
+                JURIPIRANGA. Prefeitura Municipal de Juripiranga.{" "}
+                <strong>História</strong>. Juripiranga, [s.d.]. Disponível em:
+                https://www.juripiranga.pb.gov.br/a-cidade/historia. Acesso em:
+                7 jun. 2026.
+              </p>
+
+              <p>
+                INSTITUTO BRASILEIRO DE GEOGRAFIA E ESTATÍSTICA (IBGE).{" "}
+                <strong>Juripiranga: histórico</strong>. Rio de Janeiro: IBGE,
+                [s.d.]. Disponível em:
+                https://cidades.ibge.gov.br/brasil/pb/juripiranga/historico.
+                Acesso em: 7 jun. 2026.
+              </p>
+
+              <p>
+                PREFEITURA MUNICIPAL DE JURIPIRANGA.{" "}
+                <strong>
+                  MINHAS RAÍZES: o resgate histórico e cultural do município de
+                  Juripiranga
+                </strong>
+                . YouTube, 22 dez. 2024. Disponível em:
+                https://www.youtube.com/watch?v=HwzsjRNaZq0. Acesso em: 7 jun.
+                2026.
+              </p>
+
+              <p>
+                LIRA, Bruno.{" "}
+                <strong>
+                  Padre Nilson Nunes emociona fiéis na abertura da Festa de São
+                  Sebastião em Juripiranga
+                </strong>
+                . Blog do Bruno Lira, 20 fev. 2025. Disponível em:
+                https://www.blogdobrunolira.com.br/2025/02/20/padre-nilson-nunes-emociona-fieis-na-abertura-da-festa-de-sao-sebastiao-em-julipiranga/.
+                Acesso em: 7 jun. 2026.
+              </p>
+
+              <p>
+                CARAVELA. <strong>Economia de Juripiranga - PB</strong>. [S.l.],
+                2026. Disponível em:
+                https://www.caravela.info/regional/juripiranga---pb. Acesso em:
+                7 jun. 2026.
+              </p>
+
+              <p>
+                INSTITUTO ÁGUA E SANEAMENTO.{" "}
+                <strong>O saneamento em Juripiranga (PB)</strong>. São Paulo,
+                [s.d.]. Disponível em:
+                https://www.aguaesaneamento.org.br/municipios-e-saneamento/pb/juripiranga.
+                Acesso em: 7 jun. 2026.
+              </p>
+
+              <p>
+                TERRA, Lygia; GUIMARÃES, Raul Borges; ARAÚJO, Regina.
+                <strong> Moderna Plus Geografia</strong>. 1. ed. São Paulo:
+                Moderna, 2024.
+              </p>
+
+              <p>
+                ANDRADE, Joel Carlos de Souza; DANTAS, Eugênia Maria; BURITI,
+                Iranilson de Oliveira; SOUZA, Antonio Clarindo Barbosa de
+                (org.).
+                <strong> Cultura e cidades</strong>. 1. ed. Campina Grande:
+                EDUFCG, 2009.
+              </p>
+
+              <p>
+                SOUZA, Marcelo Lopes de.
+                <strong> ABC do desenvolvimento urbano</strong>. 2. ed. Rio de
+                Janeiro: Bertrand Brasil, 2005.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+    </>
   );
 }
