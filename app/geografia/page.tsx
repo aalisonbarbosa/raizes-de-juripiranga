@@ -5,7 +5,6 @@ import SectionTitle from "@/components/shared/SectionTitle";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { GalleryImage } from "@/components/shared/GalleryImage";
 import { ImageLightbox } from "@/components/shared/ImageLightbox";
 
 const imagesLocalizacao = [
@@ -81,9 +80,11 @@ export default function Geografia() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="w-full lg:w-1/2"
               >
-                <GalleryImage
+                <Image
                   src={image.src}
                   alt={image.alt}
+                  width={600}
+                  height={400}
                   onClick={() => {
                     setSelectedIndex(i);
                     setLightboxOpen(true);
