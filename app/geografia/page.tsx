@@ -3,6 +3,7 @@
 import PageHero from "@/components/shared/PageHero";
 import SectionTitle from "@/components/shared/SectionTitle";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const imagesLocalizacao = [
   {
@@ -15,6 +16,13 @@ const imagesLocalizacao = [
   },
 ];
 
+const fadeUp = {
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.5 },
+};
+
 export default function Geografia() {
   return (
     <>
@@ -24,15 +32,17 @@ export default function Geografia() {
         subtitle="Dados geográficos e posição no mapa da Paraíba"
       />
       <section className="mx-auto max-w-5xl px-6 py-16">
-        <SectionTitle
-          badge="Geografia"
-          title="Onde fica Juripiranga"
-          description=" Juripiranga está localizada na Mesorregião da Mata Paraibana e ocupa
-            uma posição estratégica entre importantes municípios da região."
-        />
+        <motion.div {...fadeUp}>
+          <SectionTitle
+            badge="Geografia"
+            title="Onde fica Juripiranga"
+            description="Juripiranga está localizada na Mesorregião da Mata Paraibana e ocupa
+              uma posição estratégica entre importantes municípios da região."
+          />
+        </motion.div>
 
         <div className="space-y-6 text-justify text-zinc-700">
-          <p className="leading-8">
+          <motion.p {...fadeUp} className="leading-8">
             Juripiranga encontra-se situado na{" "}
             <strong>Mesorregião da Mata Paraibana</strong>. De acordo com o{" "}
             <strong>
@@ -53,11 +63,18 @@ export default function Geografia() {
             localização é marcada pela transição entre dois importantes
             ambientes naturais: a <strong>Mata Atlântica</strong> e o{" "}
             <strong>Agreste Paraibano</strong>.
-          </p>
+          </motion.p>
 
           <div className="flex flex-col lg:flex-row gap-4 justify-center items-center">
             {imagesLocalizacao.map((image, i) => (
-              <div key={i} className="w-full lg:w-1/2">
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="w-full lg:w-1/2"
+              >
                 <Image
                   src={image.src}
                   alt={image.alt}
@@ -65,24 +82,26 @@ export default function Geografia() {
                   height={600}
                   className="block w-full h-auto rounded-md"
                 />
-
                 <p className="mt-2 text-center text-xs text-zinc-500">
-                  Elaboração cartográfica: Helen Vitória (2024)
+                  Elaboração cartográfica: Vitória Helen (2024)
                 </p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
 
         <div className="space-y-6 text-justify text-zinc-700 mt-16">
-          <h3 className="text-lg font-semibold text-zinc-800">
+          <motion.h3
+            {...fadeUp}
+            className="text-lg font-semibold text-zinc-800"
+          >
             Características Naturais
-          </h3>
-          <p className="leading-8">
+          </motion.h3>
+          <motion.p {...fadeUp} className="leading-8">
             O clima predominante em Juripiranga é considerado temperado, com o
             período de inverno geralmente ocorrendo entre os meses de{" "}
             <strong>maio e setembro</strong>.
-          </p>
+          </motion.p>
         </div>
       </section>
     </>

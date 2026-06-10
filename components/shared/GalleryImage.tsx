@@ -9,7 +9,7 @@ type GalleryImageProps = {
 export function GalleryImage({ src, alt, onClick }: GalleryImageProps) {
   return (
     <div
-      className="group cursor-pointer break-inside-avoid overflow-hidden aspect-video"
+      className="group cursor-pointer overflow-hidden aspect-video"
       onClick={onClick}
     >
       <Image

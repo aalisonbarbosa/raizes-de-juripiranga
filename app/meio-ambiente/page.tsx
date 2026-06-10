@@ -1,5 +1,15 @@
+"use client";
+
 import PageHero from "@/components/shared/PageHero";
 import SectionTitle from "@/components/shared/SectionTitle";
+import { motion } from "framer-motion";
+
+const fadeUp = {
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.5 },
+};
 
 export default function MeioAmbiente() {
   return (
@@ -9,27 +19,34 @@ export default function MeioAmbiente() {
         title="Meio Ambiente"
         subtitle="Gestão de resíduos, impactos ambientais e projetos sustentáveis do município"
       />
+
       <section className="mx-auto max-w-5xl px-6 py-16">
-        <SectionTitle
-          badge="Meio Ambiente"
-          title="Problemas Socioambientais e Gestão dos Resíduos Sólidos"
-          description="Conheça os desafios ambientais de Juripiranga e as iniciativas para um futuro mais sustentável."
-        />
+        <motion.div {...fadeUp}>
+          <SectionTitle
+            badge="Meio Ambiente"
+            title="Problemas Socioambientais e Gestão dos Resíduos Sólidos"
+            description="Conheça os desafios ambientais de Juripiranga e as iniciativas para um futuro mais sustentável."
+          />
+        </motion.div>
 
         <div className="space-y-6 text-justify text-zinc-700">
-          <h3 className="text-lg font-semibold text-zinc-800">
+          <motion.h3
+            {...fadeUp}
+            className="text-lg font-semibold text-zinc-800"
+          >
             O descarte de lixo como desafio socioambiental
-          </h3>
-          <p className="leading-8">
+          </motion.h3>
+
+          <motion.p {...fadeUp} className="leading-8">
             Entre os principais problemas socioambientais enfrentados por
             Juripiranga está a questão do{" "}
             <strong>descarte de resíduos sólidos</strong>. Assim como ocorre em
             muitas cidades brasileiras, o manejo inadequado do lixo pode gerar
             impactos negativos para o meio ambiente e para a qualidade de vida
             da população.
-          </p>
+          </motion.p>
 
-          <p className="leading-8">
+          <motion.p {...fadeUp} className="leading-8">
             De acordo com o <strong>SINISA 2024</strong> cerca de{" "}
             <strong>94,7%</strong> da população do município é atendida pelo
             serviço de <strong>coleta de resíduos domiciliares</strong>.
@@ -40,9 +57,9 @@ export default function MeioAmbiente() {
             destino, como
             <strong> queima</strong>, <strong>aterro na propriedade</strong>, ou
             utilizam outras formas de descarte.
-          </p>
+          </motion.p>
 
-          <p className="leading-8">
+          <motion.p {...fadeUp} className="leading-8">
             Essa situação pode favorecer o descarte inadequado do lixo em
             terrenos baldios, áreas de vegetação, córregos e outros espaços
             impróprios. Como consequência, podem ocorrer problemas como a{" "}
@@ -50,13 +67,16 @@ export default function MeioAmbiente() {
             <strong>entupimento de canais de drenagem</strong> e o aumento do
             risco de <strong>alagamentos</strong> durante períodos de chuvas
             intensas.
-          </p>
+          </motion.p>
 
-          <h3 className="text-lg font-semibold text-zinc-800">
+          <motion.h3
+            {...fadeUp}
+            className="text-lg font-semibold text-zinc-800"
+          >
             Destino dos resíduos sólidos
-          </h3>
+          </motion.h3>
 
-          <p className="leading-8">
+          <motion.p {...fadeUp} className="leading-8">
             Após a coleta, os resíduos são encaminhados para áreas destinadas ao
             seu armazenamento e tratamento, essas áreas correspondem aos{" "}
             <strong>aterros sanitários</strong>, o lixo permanece
@@ -64,31 +84,36 @@ export default function MeioAmbiente() {
             <strong>catadores</strong> que realizam a separação de materiais
             recicláveis. Posteriormente, é realizado o processo de{" "}
             <strong>aterramento dos resíduos</strong>.
-          </p>
-          <p className="leading-8">
+          </motion.p>
+
+          <motion.p {...fadeUp} className="leading-8">
             Em outras cidades da região, parte dos resíduos é destinada ao{" "}
             <strong>Aterro Sanitário Metropolitano de João Pessoa</strong>,
             conhecido como <strong>Eco Parque</strong>, que recebe resíduos da
             capital e de diversos municípios vizinhos.
-          </p>
+          </motion.p>
 
-          <p className="leading-8">
+          <motion.p {...fadeUp} className="leading-8">
             Embora os aterros sanitários sejam considerados uma alternativa mais
             adequada que os <strong>lixões</strong>, eles também apresentam
             desafios ambientais importantes.
-          </p>
+          </motion.p>
 
           <div className="space-y-1">
-            <h3 className="text-lg font-semibold text-zinc-800">
+            <motion.h3
+              {...fadeUp}
+              className="text-lg font-semibold text-zinc-800"
+            >
               Impactos ambientais dos aterros sanitários
-            </h3>
-            <p className="leading-8">
+            </motion.h3>
+
+            <motion.p {...fadeUp} className="leading-8">
               Entre os principais impactos associados aos aterros sanitários
               destacam-se:
-            </p>
+            </motion.p>
           </div>
 
-          <ul className="list-disc ml-6">
+          <motion.ul {...fadeUp} className="list-disc ml-6">
             <li>
               A contaminação do solo e dos <strong>lençóis freáticos</strong>{" "}
               pelo <strong>chorume</strong>;
@@ -107,70 +132,83 @@ export default function MeioAmbiente() {
             <li>
               A redução gradual da <strong>vida útil do aterro</strong>.
             </li>
-          </ul>
+          </motion.ul>
 
-          <p className="leading-8">
+          <motion.p {...fadeUp} className="leading-8">
             A diminuição da vida útil ocorre porque, à medida que o volume de
             resíduos aumenta, o espaço disponível para armazenamento se esgota.
             Quando isso acontece, torna-se necessário encerrar as atividades do
             aterro ou buscar novas áreas para destinação dos resíduos.
-          </p>
+          </motion.p>
 
-          <h3 className="text-lg font-semibold text-zinc-800">
+          <motion.h3
+            {...fadeUp}
+            className="text-lg font-semibold text-zinc-800"
+          >
             Projeto de implantação de uma Usina de Resíduos Sólidos em
             Juripiranga
-          </h3>
+          </motion.h3>
 
-          <p className="leading-8">
+          <motion.p {...fadeUp} className="leading-8">
             Com o objetivo de buscar soluções mais sustentáveis para a gestão
             dos resíduos, está em discussão a implantação de uma{" "}
             <strong>Usina de Resíduos Sólidos em Juripiranga</strong>.
-          </p>
-          <p className="leading-8">
+          </motion.p>
+
+          <motion.p {...fadeUp} className="leading-8">
             Recentemente, foi realizada uma{" "}
             <strong>reunião na Prefeitura Municipal</strong> reunindo prefeitos
             de municípios da Paraíba e também representantes de cidades do
             estado de Pernambuco. Durante o encontro, foi apresentado o projeto
             de instalação da usina e assinada uma{" "}
             <strong>carta de intenção</strong> pelos gestores participantes.
-          </p>
-          <p className="leading-8">
+          </motion.p>
+
+          <motion.p {...fadeUp} className="leading-8">
             A proposta prevê que a empresa responsável realize os procedimentos
             legais, a documentação necessária e posteriormente a implementação
             da estrutura no município.
-          </p>
+          </motion.p>
 
-          <h3 className="text-lg font-semibold text-zinc-800">
+          <motion.h3
+            {...fadeUp}
+            className="text-lg font-semibold text-zinc-800"
+          >
             Como a usina funcionará?
-          </h3>
+          </motion.h3>
 
-          <p className="leading-8">
+          <motion.p {...fadeUp} className="leading-8">
             A usina funcionará como uma unidade de{" "}
             <strong>aproveitamento energético dos resíduos sólidos</strong>. Em
             vez de destinar todo o lixo diretamente para aterros sanitários,
             parte dos resíduos poderá ser utilizada para a{" "}
             <strong>geração de energia</strong>.
-          </p>
-          <p className="leading-8">
+          </motion.p>
+
+          <motion.p {...fadeUp} className="leading-8">
             O processo permitirá reduzir a quantidade de lixo acumulada no meio
             ambiente e, ao mesmo tempo, produzir <strong>eletricidade</strong>{" "}
             para abastecimento da população. Dessa forma, materiais que antes
             seriam apenas descartados poderão ser aproveitados como{" "}
             <strong>fonte de energia</strong>, contribuindo para uma gestão mais
             eficiente dos resíduos urbanos.
-          </p>
+          </motion.p>
 
           <div className="space-y-1">
-            <h3 className="text-lg font-semibold text-zinc-800">
+            <motion.h3
+              {...fadeUp}
+              className="text-lg font-semibold text-zinc-800"
+            >
               Benefícios esperados para a região
-            </h3>
-            <p className="leading-8">
+            </motion.h3>
+
+            <motion.p {...fadeUp} className="leading-8">
               Entre os benefícios apontados para a implantação da usina
               destacam-se:
-            </p>
+            </motion.p>
           </div>
 
-          <ul className="list-disc ml-6">
+          <motion.ul {...fadeUp} className="list-disc ml-6">
             <li>
               Maior aproveitamento dos resíduos produzidos pelos municípios;
             </li>
@@ -193,51 +231,41 @@ export default function MeioAmbiente() {
               Redução dos <strong>impactos ambientais</strong> causados pelo
               descarte inadequado de resíduos.
             </li>
-          </ul>
+          </motion.ul>
 
-          <p className="leading-8">
-            Além dos benefícios econômicos, a proposta busca fortalecer a{" "}
-            <strong>preservação ambiental</strong> e melhorar a gestão dos
-            resíduos sólidos em toda a região.
-          </p>
-
-          <h3 className="text-lg font-semibold text-zinc-800">
+          <motion.h3
+            {...fadeUp}
+            className="text-lg font-semibold text-zinc-800"
+          >
             Possíveis desafios e impactos negativos
-          </h3>
+          </motion.h3>
 
-          <p className="leading-8">
+          <motion.p {...fadeUp} className="leading-8">
             Apesar das vantagens, a implantação de uma usina de resíduos sólidos
-            também apresenta desafios. Um dos principais pontos de atenção está
-            relacionado à <strong>emissão de gases poluentes</strong> durante o
-            processo de aproveitamento energético dos resíduos. Dependendo da
-            tecnologia utilizada, podem ser liberadas substâncias como{" "}
-            <strong>dioxinas</strong>, <strong>furanos</strong>,{" "}
-            <strong>óxidos de nitrogênio</strong> e{" "}
-            <strong>metais pesados</strong>.
-          </p>
+            também apresenta desafios...
+          </motion.p>
 
-          <p className="leading-8">
+          <motion.p {...fadeUp} className="leading-8">
             Por essa razão, é fundamental que a usina utilize{" "}
             <strong>sistemas modernos de controle ambiental</strong>, incluindo
             filtros e equipamentos de alta eficiência capazes de reduzir a
             emissão desses poluentes e garantir a segurança ambiental e da
             população.
-          </p>
+          </motion.p>
 
-          <h3 className="text-lg font-semibold text-zinc-800">
+          <motion.h3
+            {...fadeUp}
+            className="text-lg font-semibold text-zinc-800"
+          >
             Sustentabilidade e futuro
-          </h3>
+          </motion.h3>
 
-          <p className="leading-8">
+          <motion.p {...fadeUp} className="leading-8">
             A <strong>gestão adequada dos resíduos sólidos</strong> é um dos
-            grandes desafios das cidades contemporâneas. Projetos que buscam
-            reduzir o volume de lixo descartado, ampliar a{" "}
-            <strong>reciclagem</strong> e aproveitar resíduos para geração de
-            energia representam alternativas importantes para promover o{" "}
-            <strong>desenvolvimento sustentável</strong>.
-          </p>
+            grandes desafios das cidades contemporâneas...
+          </motion.p>
 
-          <p className="leading-8">
+          <motion.p {...fadeUp} className="leading-8">
             Nesse contexto, a possível implantação da{" "}
             <strong>Usina de Resíduos Sólidos em Juripiranga</strong> surge como
             uma iniciativa que busca conciliar{" "}
@@ -246,7 +274,7 @@ export default function MeioAmbiente() {
             <strong>preservação ambiental</strong>, contribuindo para a
             construção de um futuro mais sustentável para o município e toda a
             região.
-          </p>
+          </motion.p>
         </div>
       </section>
     </>
