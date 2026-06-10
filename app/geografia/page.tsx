@@ -4,6 +4,9 @@ import PageHero from "@/components/shared/PageHero";
 import SectionTitle from "@/components/shared/SectionTitle";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useState } from "react";
+import { GalleryImage } from "@/components/shared/GalleryImage";
+import { ImageLightbox } from "@/components/shared/ImageLightbox";
 
 const imagesLocalizacao = [
   {
@@ -24,6 +27,9 @@ const fadeUp = {
 };
 
 export default function Geografia() {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
   return (
     <>
       <PageHero
@@ -75,12 +81,13 @@ export default function Geografia() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="w-full lg:w-1/2"
               >
-                <Image
+                <GalleryImage
                   src={image.src}
                   alt={image.alt}
-                  width={800}
-                  height={600}
-                  className="block w-full h-auto rounded-md"
+                  onClick={() => {
+                    setSelectedIndex(i);
+                    setLightboxOpen(true);
+                  }}
                 />
                 <p className="mt-2 text-center text-xs text-zinc-500">
                   Elaboração cartográfica: Vitória Helen (2024)
@@ -104,6 +111,13 @@ export default function Geografia() {
           </motion.p>
         </div>
       </section>
+      {lightboxOpen && (
+        <ImageLightbox
+          images={imagesLocalizacao}
+          initialIndex={selectedIndex}
+          onClose={() => setLightboxOpen(false)}
+        />
+      )}
     </>
   );
 }
