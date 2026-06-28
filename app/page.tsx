@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -20,7 +21,6 @@ const sections = [
     description:
       "Conheça as origens e a formação da cidade de Juripiranga ao longo dos séculos.",
     path: "/historia",
-    delay: 0.1,
   },
   {
     icon: MapPin,
@@ -28,16 +28,13 @@ const sections = [
     description:
       "Dados geográficos, clima, relevo e posição no mapa da Paraíba.",
     path: "/geografia",
-    delay: 0.2,
   },
-
   {
     icon: Music,
     title: "Cultura",
     description:
       "Tradições, festas e a identidade cultural dos juripiranguenses.",
     path: "/cultura",
-    delay: 0.4,
   },
   {
     icon: TrendingUp,
@@ -45,7 +42,6 @@ const sections = [
     description:
       "A economia local, o comércio e as atividades produtivas da região.",
     path: "/economia",
-    delay: 0.3,
   },
   {
     icon: Building2,
@@ -53,7 +49,6 @@ const sections = [
     description:
       "A estrutura urbana, o crescimento da cidade e sua posição na hierarquia urbana brasileira.",
     path: "/urbanizacao",
-    delay: 0.6,
   },
   {
     icon: TreePine,
@@ -61,27 +56,39 @@ const sections = [
     description:
       "Gestão de resíduos, impactos ambientais e projetos sustentáveis do município.",
     path: "/meio-ambiente",
-    delay: 0.5,
   },
 ];
+
+// Transições compartilhadas — uma única "voz" de movimento na página,
+// em vez de delays soltos por elemento.
+const fadeUp = {
+  initial: { opacity: 0, y: 12 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.4, ease: "easeOut" as const },
+};
+
+const fadeUpOnView = {
+  initial: { opacity: 0, y: 12 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.4, ease: "easeOut" as const },
+};
 
 export default function Home() {
   return (
     <>
       <section className="relative h-[85vh] min-h-135 overflow-hidden">
-        <img
+        <Image
           src="/home-hero.png"
           alt="Vista panorâmica de Juripiranga"
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          priority
+          className="object-cover"
         />
 
         <div className="absolute inset-0 bg-linear-to-tr from-black/70 via-black/50 to-transparent" />
         <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-end pb-20">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
+          <motion.div {...fadeUp}>
             <h1 className="font-poppins font-extrabold text-4xl sm:text-6xl lg:text-7xl text-white mb-4 leading-tight">
               Juripiranga
               <span className="block text-2xl sm:text-3xl lg:text-4xl font-semibold text-white/70 mt-2">
@@ -108,10 +115,7 @@ export default function Home() {
       <section className="py-20 bg-secondary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+            {...fadeUpOnView}
             className="text-center max-w-3xl mx-auto"
           >
             <h2 className="font-poppins font-bold text-3xl sm:text-4xl text-foreground mb-6">
@@ -130,13 +134,7 @@ export default function Home() {
 
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-14"
-          >
+          <motion.div {...fadeUpOnView} className="text-center mb-14">
             <h2 className="font-poppins font-bold text-3xl sm:text-4xl text-foreground mb-4">
               Navegue pelo conteúdo
             </h2>
@@ -149,14 +147,14 @@ export default function Home() {
             {sections.map((section) => (
               <motion.div
                 key={section.path}
-                initial={{ opacity: 0, y: 24 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: section.delay }}
+                transition={{ duration: 0.35, ease: "easeOut" }}
               >
                 <Link href={section.path} className="block group">
-                  <div className="bg-card rounded-xl border border-border p-7 shadow-sm hover:shadow-lg hover:border-primary/30 transition-all duration-300">
-                    <div className="w-14 h-14 rounded-xl bg-accent flex items-center justify-center mb-5 group-hover:bg-primary group-hover:scale-105 transition-all duration-300">
+                  <div className="bg-card rounded-xl border border-border p-7 shadow-sm hover:shadow-lg hover:border-primary/30 transition-shadow duration-300">
+                    <div className="w-14 h-14 rounded-xl bg-accent flex items-center justify-center mb-5 group-hover:bg-primary transition-colors duration-300">
                       <section.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors" />
                     </div>
                     <h3 className="font-poppins font-semibold text-xl text-foreground mb-2 group-hover:text-primary transition-colors">
@@ -176,14 +174,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+
       <section className="py-20 bg-secondary">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 wrap-break-word">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
+          <motion.div {...fadeUpOnView}>
             <h2 className="font-poppins font-bold text-3xl text-foreground mb-8">
               Referências
             </h2>
@@ -194,9 +188,16 @@ export default function Home() {
                   Juripiranga celebra 150 anos de fé, cultura e tradição na
                   Festa de São Sebastião 2026
                 </strong>
-                . Juripiranga, 9 fev. 2026. Disponível em:
-                https://www.juripiranga.pb.gov.br/noticia/juripiranga-celebra-150-anos-de-fe-cultura-e-tradicao-na-festa-de-sao-sebastiao-2026.
-                Acesso em: 7 jun. 2026.
+                . Juripiranga, 9 fev. 2026. Disponível em:{" "}
+                <a
+                  href="https://www.juripiranga.pb.gov.br/noticia/juripiranga-celebra-150-anos-de-fe-cultura-e-tradicao-na-festa-de-sao-sebastiao-2026"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary underline underline-offset-2 hover:text-primary-hover wrap-break-word"
+                >
+                  https://www.juripiranga.pb.gov.br/noticia/juripiranga-celebra-150-anos-de-fe-cultura-e-tradicao-na-festa-de-sao-sebastiao-2026
+                </a>
+                . Acesso em: 7 jun. 2026.
               </p>
               <p className="leading-8">
                 JOÃO PESSOA. Prefeitura Municipal de João Pessoa.{" "}
@@ -204,9 +205,16 @@ export default function Home() {
                   Secretaria de Planejamento e EMLUR acompanham estudos para
                   aumentar vida útil do aterro sanitário
                 </strong>
-                . João Pessoa, [s.d.]. Disponível em:
-                https://www.joaopessoa.pb.gov.br/noticias/secretarias-e-orgaos/seplan-e-emlur-acompanham-estudos-para-aumentar-vida-util-do-aterro-sanitario/.
-                Acesso em: 7 jun. 2026.
+                . João Pessoa, [s.d.]. Disponível em:{" "}
+                <a
+                  href="https://www.joaopessoa.pb.gov.br/noticias/secretarias-e-orgaos/seplan-e-emlur-acompanham-estudos-para-aumentar-vida-util-do-aterro-sanitario/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary underline underline-offset-2 hover:text-primary-hover wrap-break-word"
+                >
+                  https://www.joaopessoa.pb.gov.br/noticias/secretarias-e-orgaos/seplan-e-emlur-acompanham-estudos-para-aumentar-vida-util-do-aterro-sanitario/
+                </a>
+                . Acesso em: 7 jun. 2026.
               </p>
               <p className="leading-8">
                 INSPER AGRO GLOBAL.{" "}
@@ -214,31 +222,59 @@ export default function Home() {
                   A agricultura familiar produz 70% dos alimentos consumidos
                   pelos brasileiros?
                 </strong>{" "}
-                São Paulo, 2022. Disponível em:
-                https://agro.insper.edu.br/agro-in-data/artigos/a-agricultura-familiar-produz-70-dos-alimentos-consumidos-pelos-brasileiros.
-                Acesso em: 7 jun. 2026.
+                São Paulo, 2022. Disponível em:{" "}
+                <a
+                  href="https://agro.insper.edu.br/agro-in-data/artigos/a-agricultura-familiar-produz-70-dos-alimentos-consumidos-pelos-brasileiros"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary underline underline-offset-2 hover:text-primary-hover wrap-break-word"
+                >
+                  https://agro.insper.edu.br/agro-in-data/artigos/a-agricultura-familiar-produz-70-dos-alimentos-consumidos-pelos-brasileiros
+                </a>
+                . Acesso em: 7 jun. 2026.
               </p>
               <p className="leading-8">
                 JURIPIRANGA. Prefeitura Municipal de Juripiranga.{" "}
                 <strong>
                   Secretaria de Infraestrutura, Agricultura e Meio Ambiente
                 </strong>
-                . Disponível em:
-                https://www.juripiranga.pb.gov.br/a-prefeitura/secretarias/secretaria-de-infraestrutura-agricultura-e-meio-ambiente.
-                Acesso em: 7 jun. 2026.
+                . Disponível em:{" "}
+                <a
+                  href="https://www.juripiranga.pb.gov.br/a-prefeitura/secretarias/secretaria-de-infraestrutura-agricultura-e-meio-ambiente"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary underline underline-offset-2 hover:text-primary-hover wrap-break-word"
+                >
+                  https://www.juripiranga.pb.gov.br/a-prefeitura/secretarias/secretaria-de-infraestrutura-agricultura-e-meio-ambiente
+                </a>
+                . Acesso em: 7 jun. 2026.
               </p>
               <p className="leading-8">
                 JURIPIRANGA. Prefeitura Municipal de Juripiranga.{" "}
-                <strong>História</strong>. Juripiranga, [s.d.]. Disponível em:
-                https://www.juripiranga.pb.gov.br/a-cidade/historia. Acesso em:
-                7 jun. 2026.
+                <strong>História</strong>. Juripiranga, [s.d.]. Disponível em:{" "}
+                <a
+                  href="https://www.juripiranga.pb.gov.br/a-cidade/historia"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary underline underline-offset-2 hover:text-primary-hover wrap-break-word"
+                >
+                  https://www.juripiranga.pb.gov.br/a-cidade/historia
+                </a>
+                . Acesso em: 7 jun. 2026.
               </p>
               <p className="leading-8">
                 INSTITUTO BRASILEIRO DE GEOGRAFIA E ESTATÍSTICA (IBGE).{" "}
                 <strong>Juripiranga: histórico</strong>. Rio de Janeiro: IBGE,
-                [s.d.]. Disponível em:
-                https://cidades.ibge.gov.br/brasil/pb/juripiranga/historico.
-                Acesso em: 7 jun. 2026.
+                [s.d.]. Disponível em:{" "}
+                <a
+                  href="https://cidades.ibge.gov.br/brasil/pb/juripiranga/historico"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary underline underline-offset-2 hover:text-primary-hover wrap-break-word"
+                >
+                  https://cidades.ibge.gov.br/brasil/pb/juripiranga/historico
+                </a>
+                . Acesso em: 7 jun. 2026.
               </p>
               <p className="leading-8">
                 PREFEITURA MUNICIPAL DE JURIPIRANGA.{" "}
@@ -246,9 +282,16 @@ export default function Home() {
                   MINHAS RAÍZES: o resgate histórico e cultural do município de
                   Juripiranga
                 </strong>
-                . YouTube, 22 dez. 2024. Disponível em:
-                https://www.youtube.com/watch?v=HwzsjRNaZq0. Acesso em: 7 jun.
-                2026.
+                . YouTube, 22 dez. 2024. Disponível em:{" "}
+                <a
+                  href="https://www.youtube.com/watch?v=HwzsjRNaZq0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary underline underline-offset-2 hover:text-primary-hover wrap-break-word"
+                >
+                  https://www.youtube.com/watch?v=HwzsjRNaZq0
+                </a>
+                . Acesso em: 7 jun. 2026.
               </p>
               <p className="leading-8">
                 LIRA, Bruno.{" "}
@@ -256,22 +299,43 @@ export default function Home() {
                   Padre Nilson Nunes emociona fiéis na abertura da Festa de São
                   Sebastião em Juripiranga
                 </strong>
-                . Blog do Bruno Lira, 20 fev. 2025. Disponível em:
-                https://www.blogdobrunolira.com.br/2025/02/20/padre-nilson-nunes-emociona-fieis-na-abertura-da-festa-de-sao-sebastiao-em-julipiranga/.
-                Acesso em: 7 jun. 2026.
+                . Blog do Bruno Lira, 20 fev. 2025. Disponível em:{" "}
+                <a
+                  href="https://www.blogdobrunolira.com.br/2025/02/20/padre-nilson-nunes-emociona-fieis-na-abertura-da-festa-de-sao-sebastiao-em-julipiranga/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary underline underline-offset-2 hover:text-primary-hover wrap-break-word"
+                >
+                  https://www.blogdobrunolira.com.br/2025/02/20/padre-nilson-nunes-emociona-fieis-na-abertura-da-festa-de-sao-sebastiao-em-julipiranga/
+                </a>
+                . Acesso em: 7 jun. 2026.
               </p>
               <p className="leading-8">
                 CARAVELA. <strong>Economia de Juripiranga - PB</strong>. [S.l.],
-                2026. Disponível em:
-                https://www.caravela.info/regional/juripiranga---pb. Acesso em:
-                7 jun. 2026.
+                2026. Disponível em:{" "}
+                <a
+                  href="https://www.caravela.info/regional/juripiranga---pb"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary underline underline-offset-2 hover:text-primary-hover wrap-break-word"
+                >
+                  https://www.caravela.info/regional/juripiranga---pb
+                </a>
+                . Acesso em: 7 jun. 2026.
               </p>
               <p className="leading-8">
                 INSTITUTO ÁGUA E SANEAMENTO.{" "}
                 <strong>O saneamento em Juripiranga (PB)</strong>. São Paulo,
-                [s.d.]. Disponível em:
-                https://www.aguaesaneamento.org.br/municipios-e-saneamento/pb/juripiranga.
-                Acesso em: 7 jun. 2026.
+                [s.d.]. Disponível em:{" "}
+                <a
+                  href="https://www.aguaesaneamento.org.br/municipios-e-saneamento/pb/juripiranga"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary underline underline-offset-2 hover:text-primary-hover wrap-break-word"
+                >
+                  https://www.aguaesaneamento.org.br/municipios-e-saneamento/pb/juripiranga
+                </a>
+                . Acesso em: 7 jun. 2026.
               </p>
               <p className="leading-8">
                 TERRA, Lygia; GUIMARÃES, Raul Borges; ARAÚJO, Regina.

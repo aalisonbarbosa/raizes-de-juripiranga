@@ -5,7 +5,6 @@ import { ImageLightbox } from "@/components/shared/ImageLightbox";
 import PageHero from "@/components/shared/PageHero";
 import SectionTitle from "@/components/shared/SectionTitle";
 import { useState } from "react";
-import { motion } from "framer-motion";
 
 const imagesCultura = [
   { src: "/foto-cultura1.png", alt: "Cultura de Juripiranga" },
@@ -14,13 +13,6 @@ const imagesCultura = [
   { src: "/festa-sao-sebastio.jpeg", alt: "Festa de São Sebastião" },
   { src: "/quadrilha-cultura.jpeg", alt: "Quadrilha junina de Juripiranga" },
 ];
-
-const fadeUp = {
-  initial: { opacity: 0, y: 20 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.5 },
-};
 
 export default function CulturaPage() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -35,23 +27,16 @@ export default function CulturaPage() {
       />
 
       <section className="mx-auto max-w-5xl px-6 py-16">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <SectionTitle
-            badge="Cultura"
-            title="Cultura e Tradições de Juripiranga"
-            description="As cidades são espaços vivos, formados por histórias, tradições e
+        <SectionTitle
+          badge="Cultura"
+          title="Cultura e Tradições de Juripiranga"
+          description="As cidades são espaços vivos, formados por histórias, tradições e
               memórias compartilhadas que constroem a identidade de seus
               habitantes."
-          />
-        </motion.div>
+        />
 
         <div className="space-y-6 text-justify text-zinc-700">
-          <motion.p {...fadeUp}>
+          <p className="leading-8">
             As cidades são muito mais do que ruas, construções, atividades
             econômicas e problemas urbanos. Elas são espaços vivos, formados por
             histórias, tradições, memórias e experiências compartilhadas que
@@ -61,8 +46,8 @@ export default function CulturaPage() {
             <strong>sentimento de pertencimento</strong> da população, ela
             projeta a importância de uma cidade para além de seus limites
             geográficos.
-          </motion.p>
-          <motion.p {...fadeUp}>
+          </p>
+          <p className="leading-8">
             Quando afirmamos que a cultura ultrapassa as{" "}
             <strong>fronteiras físicas</strong> de uma cidade, significa que ela
             passa a ser reconhecida não apenas por seu território, mas também
@@ -73,22 +58,19 @@ export default function CulturaPage() {
             seus <strong>eventos culturais</strong>, sua{" "}
             <strong>gastronomia típica</strong> ou suas{" "}
             <strong>celebrações tradicionais</strong>.
-          </motion.p>
-          <motion.p {...fadeUp}>
+          </p>
+          <p className="leading-8">
             Um exemplo desse fenômeno é a cidade de{" "}
             <strong>Campina Grande</strong>, amplamente reconhecida por realizar
             o tradicional <strong>"Maior São João do Mundo"</strong>. Sua fama
             ultrapassa os limites do estado e faz com que a cidade seja
             conhecida nacionalmente por sua cultura e suas festividades.
-          </motion.p>
+          </p>
 
-          <motion.h3
-            {...fadeUp}
-            className="text-lg font-semibold text-zinc-800"
-          >
+          <h3 className="text-lg font-semibold text-zinc-800">
             A identidade cultural de Juripiranga
-          </motion.h3>
-          <motion.p {...fadeUp}>
+          </h3>
+          <p className="leading-8">
             Da mesma forma, Juripiranga também possui uma identidade cultural
             marcante. O município é conhecido como a{" "}
             <strong>"Cidade do Chapéu de Palha"</strong> e por realizar uma das
@@ -96,13 +78,13 @@ export default function CulturaPage() {
             <strong>São Sebastião do Vale do Paraíba</strong>, além de promover
             importantes <strong>celebrações juninas</strong> que fazem parte da
             história e da cultura local.
-          </motion.p>
-          <motion.p {...fadeUp}>
+          </p>
+          <p className="leading-8">
             Ao longo do tempo, a cidade passou por diversas transformações
             urbanas e sociais. No entanto, suas tradições permanecem vivas e
             continuam sendo transmitidas entre gerações.
-          </motion.p>
-          <motion.p {...fadeUp}>
+          </p>
+          <p className="leading-8">
             <strong>O artesanato do chapéu de palha:</strong> Uma das
             manifestações culturais mais importantes de Juripiranga é a{" "}
             <strong>produção artesanal do chapéu de palha</strong>. Essa
@@ -115,8 +97,8 @@ export default function CulturaPage() {
             das <strong>festividades juninas</strong>. Além de representar uma
             fonte de renda para diversas famílias, o artesanato tornou-se um{" "}
             <strong>símbolo da identidade cultural</strong> do município.
-          </motion.p>
-          <motion.p {...fadeUp}>
+          </p>
+          <p className="leading-8">
             <strong>A Festa de São Sebastião:</strong> Entre os principais
             eventos culturais e religiosos de Juripiranga destaca-se a
             tradicional <strong>Festa de São Sebastião</strong>, realizada
@@ -126,8 +108,8 @@ export default function CulturaPage() {
             atividades culturais que valorizam as tradições locais. O evento
             atrai moradores e visitantes, tornando-se um dos momentos mais
             importantes do <strong>calendário cultural</strong> da cidade.
-          </motion.p>
-          <motion.p {...fadeUp}>
+          </p>
+          <p className="leading-8">
             <strong>O São João de Juripiranga:</strong> Outro destaque da
             cultura local é o <strong>São João de Juripiranga</strong>, uma das
             festas mais aguardadas pela população. Realizado no{" "}
@@ -142,51 +124,41 @@ export default function CulturaPage() {
             moradores e visitantes, contribuindo para a preservação das{" "}
             <strong>tradições nordestinas</strong> e para o fortalecimento da
             identidade cultural do município.
-          </motion.p>
+          </p>
 
-          <motion.h3
-            {...fadeUp}
-            className="text-lg font-semibold text-zinc-800"
-          >
+          <h3 className="text-lg font-semibold text-zinc-800">
             Cultura, memória e pertencimento
-          </motion.h3>
-          <motion.p {...fadeUp}>
+          </h3>
+          <p className="leading-8">
             As manifestações culturais de Juripiranga demonstram que a
             identidade de uma cidade não é construída apenas por suas ruas,
             edifícios ou atividades econômicas. Ela também é formada pelas{" "}
             <strong>histórias</strong>, pelos <strong>costumes</strong> e pelas{" "}
             <strong>tradições</strong> que atravessam gerações.
-          </motion.p>
-          <motion.p {...fadeUp}>
+          </p>
+          <p className="leading-8">
             Ao preservar suas <strong>festas</strong>, seu{" "}
             <strong>artesanato</strong> e suas{" "}
             <strong>práticas culturais</strong>, Juripiranga mantém viva a{" "}
             <strong>memória de seu povo</strong> e fortalece o sentimento de
             pertencimento de sua população, projetando sua identidade muito além
             de suas fronteiras geográficas.
-          </motion.p>
+          </p>
         </div>
 
-        <motion.div className="grid gap-3 md:grid-cols-3 my-12 space-y-3">
+        <div className="grid gap-3 md:grid-cols-3 my-12 space-y-3">
           {imagesCultura.map((image, i) => (
-            <motion.div
+            <GalleryImage
               key={i}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-            >
-              <GalleryImage
-                src={image.src}
-                alt={image.alt}
-                onClick={() => {
-                  setSelectedIndex(i);
-                  setLightboxOpen(true);
-                }}
-              />
-            </motion.div>
+              src={image.src}
+              alt={image.alt}
+              onClick={() => {
+                setSelectedIndex(i);
+                setLightboxOpen(true);
+              }}
+            />
           ))}
-        </motion.div>
+        </div>
       </section>
 
       {lightboxOpen && (

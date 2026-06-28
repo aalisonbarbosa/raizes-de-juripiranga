@@ -5,7 +5,6 @@ import { ImageLightbox } from "@/components/shared/ImageLightbox";
 import PageHero from "@/components/shared/PageHero";
 import SectionTitle from "@/components/shared/SectionTitle";
 import { useState } from "react";
-import { motion } from "framer-motion";
 
 const imagesHistoria = [
   {
@@ -39,13 +38,6 @@ const imagesHistoria = [
   { src: "/image9.png", alt: "Registro histórico de Juripiranga" },
 ];
 
-const fadeUp = {
-  initial: { opacity: 0, y: 20 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.5 },
-};
-
 export default function HistoriaPage() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -58,7 +50,7 @@ export default function HistoriaPage() {
         subtitle="As origens e a formação de Juripiranga ao longo dos séculos"
       />
       <section className="mx-auto max-w-5xl px-6 py-16">
-        <motion.div {...fadeUp}>
+        <div>
           <SectionTitle
             badge="História"
             title="As Raízes de Juripiranga"
@@ -66,10 +58,10 @@ export default function HistoriaPage() {
               trabalho das famílias pioneiras que moldaram sua identidade ao longo
               dos séculos."
           />
-        </motion.div>
+        </div>
 
         <div className="space-y-6 text-justify text-zinc-700">
-          <motion.p {...fadeUp} className="leading-8">
+          <p className="leading-8">
             O município de Juripiranga teve sua origem{" "}
             <strong>por volta de 1777</strong>, de acordo com o site oficial da
             prefeitura a <strong>família Braz Gomes Tavares</strong> e outros
@@ -80,14 +72,14 @@ export default function HistoriaPage() {
             situada a aproximadamente 1 quilômetro da atual sede municipal.
             Pouco tempo depois, Francisco Félix e a família Chagas também
             passaram a residir na região.
-          </motion.p>
-          <motion.p {...fadeUp} className="leading-8">
+          </p>
+          <p className="leading-8">
             Nesse primeiro núcleo de povoamento foi construído um cruzeiro, em
             torno do qual eram realizadas as festividades religiosas da
             comunidade, tornando-se um importante ponto de encontro para os
             moradores da época.
-          </motion.p>
-          <motion.p {...fadeUp} className="leading-8">
+          </p>
+          <p className="leading-8">
             Alguns anos mais tarde, a <strong>família Ferreira</strong>,
             procedente do sertão, instalou-se na localidade onde atualmente se
             encontra a cidade de Juripiranga, denominada na época de{" "}
@@ -96,14 +88,14 @@ export default function HistoriaPage() {
             familiares fizeram uma promessa: caso a jovem alcançasse a cura,
             seria construída uma capela e doado um patrimônio em homenagem a
             Nossa Senhora da Soledade.
-          </motion.p>
-          <motion.p {...fadeUp} className="leading-8">
+          </p>
+          <p className="leading-8">
             A graça foi alcançada e a promessa cumprida. A família Ferreira
             construiu a capela, doou uma extensa área de terras e ofertou jóias
             e adornos para o altar da santa, contribuindo significativamente
             para o desenvolvimento religioso e social da localidade.
-          </motion.p>
-          <motion.p {...fadeUp} className="leading-8">
+          </p>
+          <p className="leading-8">
             Além de sua contribuição religiosa, a família Ferreira também
             impulsionou a economia local ao manter, durante muitos anos, uma
             unidade de beneficiamento de algodão. Essa atividade atraiu
@@ -112,36 +104,30 @@ export default function HistoriaPage() {
             da comunidade destacam-se Inácio Marinho, Augusto Guedes Monteiro,
             Vicente Farias, José Nogueira, família Machado, familia Souza e a
             família Maroja.
-          </motion.p>
+          </p>
 
-          <motion.h3
-            {...fadeUp}
-            className="text-lg font-semibold text-zinc-800"
-          >
+          <h3 className="text-lg font-semibold text-zinc-800">
             Da Serrinha a Juripiranga
-          </motion.h3>
-          <motion.p {...fadeUp} className="leading-8">
+          </h3>
+          <p className="leading-8">
             Na divisão administrativa do Brasil de 1911, a localidade fazia
             parte do município de Pilar. Essa condição permaneceu nas divisões
             territoriais de 1936, 1937, 1938 e no quinquênio de 1939 a 1943,
             quando ainda era conhecida pelo nome de Serrinha.
-          </motion.p>
-          <motion.p {...fadeUp} className="leading-8">
+          </p>
+          <p className="leading-8">
             Posteriormente, por meio da{" "}
             <strong>Lei nº 520, de 31 de janeiro de 1943</strong>, o distrito
             passou a ser oficialmente denominado Juripiranga. O nome tem origem
             indígena e significa <strong>"Ave que Canta"</strong>, uma
             referência à grande quantidade de pássaros que habitavam a região e
             que podiam ser ouvidos ao amanhecer e ao entardecer.
-          </motion.p>
+          </p>
 
-          <motion.h3
-            {...fadeUp}
-            className="text-lg font-semibold text-zinc-800"
-          >
+          <h3 className="text-lg font-semibold text-zinc-800">
             Emancipação Política
-          </motion.h3>
-          <motion.p {...fadeUp} className="leading-8">
+          </h3>
+          <p className="leading-8">
             A emancipação política de Juripiranga foi conquistada através da{" "}
             <strong>Lei nº 2.673, de 22 de dezembro de 1961</strong>. Sua
             instalação oficial ocorreu em <strong>4 de janeiro de 1962</strong>,
@@ -154,27 +140,20 @@ export default function HistoriaPage() {
             no final da década de 58 para 59, emancipou a cidade e ficou como
             prefeito interino até o mês da eleição em Novembro, e em{" "}
             <strong>4 de Novembro de 1962</strong> ele tomou posse.
-          </motion.p>
+          </p>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 my-12">
           {imagesHistoria.map((image, i) => (
-            <motion.div
+            <GalleryImage
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-            >
-              <GalleryImage
-                src={image.src}
-                alt={image.alt}
-                onClick={() => {
-                  setSelectedIndex(i);
-                  setLightboxOpen(true);
-                }}
-              />
-            </motion.div>
+              src={image.src}
+              alt={image.alt}
+              onClick={() => {
+                setSelectedIndex(i);
+                setLightboxOpen(true);
+              }}
+            />
           ))}
         </div>
       </section>
