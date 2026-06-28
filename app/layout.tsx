@@ -4,7 +4,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://raizesdejuripiranga.com"),
+  metadataBase: new URL("https://raizes-de-juripiranga.vercel.app"),
 
   title: {
     default: "Raízes de Juripiranga",
@@ -12,18 +12,41 @@ export const metadata: Metadata = {
   },
 
   description:
-    "Projeto acadêmico sobre a cidade de Juripiranga - PB, explorando sua história, localização, cultura, economia e identidade local.",
+    "Conheça Juripiranga (PB) por meio de um acervo completo sobre sua história, geografia, cultura, economia, urbanização e meio ambiente.",
 
   keywords: [
     "Juripiranga",
     "Juripiranga PB",
-    "História de Juripiranga",
-    "Geografia de Juripiranga",
-    "Cultura de Juripiranga",
-    "Economia de Juripiranga",
+    "Juripiranga Paraíba",
     "Cidade de Juripiranga",
-    "Projeto acadêmico",
-    "Geografia Paraíba",
+    "Município de Juripiranga",
+
+    "História de Juripiranga",
+    "Origem de Juripiranga",
+    "Fundação de Juripiranga",
+    "Emancipação de Juripiranga",
+
+    "Geografia de Juripiranga",
+    "Localização de Juripiranga",
+    "População de Juripiranga",
+    "Mapa de Juripiranga",
+
+    "Economia de Juripiranga",
+    "Agricultura de Juripiranga",
+    "Comércio de Juripiranga",
+
+    "Cultura de Juripiranga",
+    "São João de Juripiranga",
+    "Festa de São Sebastião",
+    "Chapéu de Palha",
+    "Cidade do Chapéu de Palha",
+
+    "Urbanização de Juripiranga",
+    "Meio Ambiente de Juripiranga",
+
+    "Vale do Paraíba",
+    "Mata Paraibana",
+    "Paraíba",
   ],
 
   authors: [{ name: "Vitória Hellem" }, { name: "Alison Barbosa" }],
@@ -32,31 +55,6 @@ export const metadata: Metadata = {
   publisher: "Raízes de Juripiranga",
 
   category: "education",
-
-  openGraph: {
-    title: "Raízes de Juripiranga",
-    description:
-      "Conheça a história, cultura, geografia e economia da cidade de Juripiranga - PB.",
-    url: "https://raizesdejuripiranga.com",
-    siteName: "Raízes de Juripiranga",
-    locale: "pt_BR",
-    type: "website",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Raízes de Juripiranga",
-      },
-    ],
-  },
-
-  twitter: {
-    card: "summary_large_image",
-    title: "Raízes de Juripiranga",
-    description: "Projeto acadêmico sobre a cidade de Juripiranga - PB.",
-    images: ["/og-image.jpg"],
-  },
 
   robots: {
     index: true,

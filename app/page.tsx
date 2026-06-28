@@ -30,13 +30,14 @@ const sections = [
     path: "/geografia",
     delay: 0.2,
   },
+
   {
-    icon: Building2,
-    title: "Urbanização",
+    icon: Music,
+    title: "Cultura",
     description:
-      "A estrutura urbana, o crescimento da cidade e sua posição na hierarquia urbana brasileira.",
-    path: "/urbanizacao",
-    delay: 0.6,
+      "Tradições, festas e a identidade cultural dos juripiranguenses.",
+    path: "/cultura",
+    delay: 0.4,
   },
   {
     icon: TrendingUp,
@@ -47,20 +48,20 @@ const sections = [
     delay: 0.3,
   },
   {
+    icon: Building2,
+    title: "Urbanização",
+    description:
+      "A estrutura urbana, o crescimento da cidade e sua posição na hierarquia urbana brasileira.",
+    path: "/urbanizacao",
+    delay: 0.6,
+  },
+  {
     icon: TreePine,
     title: "Meio Ambiente",
     description:
       "Gestão de resíduos, impactos ambientais e projetos sustentáveis do município.",
     path: "/meio-ambiente",
     delay: 0.5,
-  },
-  {
-    icon: Music,
-    title: "Cultura",
-    description:
-      "Tradições, festas e a identidade cultural dos juripiranguenses.",
-    path: "/cultura",
-    delay: 0.4,
   },
 ];
 
@@ -88,8 +89,9 @@ export default function Home() {
               </span>
             </h1>
             <p className="text-white/80 text-lg sm:text-xl max-w-2xl mb-8 leading-relaxed">
-              Um estudo geográfico sobre a cidade, sua história, cultura,
-              economia e paisagem — produzido para fins educativos.
+              Conheça Juripiranga, município da Paraíba. Explore sua história,
+              geografia, cultura, economia, urbanização e meio ambiente por meio
+              de um projeto acadêmico com informações históricas e geográficas.
             </p>
             <Link href="/historia">
               <Button

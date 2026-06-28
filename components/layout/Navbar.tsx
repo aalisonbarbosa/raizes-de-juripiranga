@@ -12,10 +12,10 @@ const navLinks = [
   { label: "Home", path: "/" },
   { label: "História", path: "/historia" },
   { label: "Geografia", path: "/geografia" },
-  { label: "Urbanização", path: "/urbanizacao" },
-  { label: "Economia", path: "/economia" },
-  { label: "Meio Ambiente", path: "/meio-ambiente" },
   { label: "Cultura", path: "/cultura" },
+  { label: "Economia", path: "/economia" },
+  { label: "Urbanização", path: "/urbanizacao" },
+  { label: "Meio Ambiente", path: "/meio-ambiente" },
 ];
 
 export default function Navbar() {

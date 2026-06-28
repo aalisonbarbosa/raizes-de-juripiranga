@@ -17,20 +17,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      path: "/urbanizacao",
-      priority: 0.8,
+      path: "/cultura",
+      priority: 0.9,
     },
     {
       path: "/economia",
       priority: 0.8,
     },
     {
-      path: "/meio-ambiente",
+      path: "/urbanizacao",
       priority: 0.8,
     },
     {
-      path: "/cultura",
-      priority: 0.9,
+      path: "/meio-ambiente",
+      priority: 0.8,
     },
   ];
 
