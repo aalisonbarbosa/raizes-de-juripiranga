@@ -56,11 +56,6 @@ export const metadata: Metadata = {
 
   category: "education",
 
-  robots: {
-    index: true,
-    follow: true,
-  },
-
   icons: {
     icon: "/favicon.ico",
   },
